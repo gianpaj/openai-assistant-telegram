@@ -6,7 +6,7 @@ use async_openai::{
     Client,
 };
 use flowsnet_platform_sdk::logger;
-use tg_flows::{listen_to_update, update_handler, Telegram, UpdateKind};
+use tg_flows::{listen_to_update, update_handler, InputFile, Telegram, UpdateKind};
 
 #[no_mangle]
 #[tokio::main(flavor = "current_thread")]
@@ -53,7 +53,8 @@ async fn handler(update: tg_flows::Update) {
         _ = tele.send_message(chat_id, response);
         // must be audio/ogg and be no more than 1MB in size
         // https://core.telegram.org/bots/api#inputfile
-        _ = tele.send_voice(chat_id, "https://dl.sndup.net/pnvg/throbbing.ogg");
+        let file = InputFile::Url("https://dl.sndup.net/pnvg/throbbing.ogg");
+        _ = tele.send_voice(chat_id, file);
     }
 }
 
