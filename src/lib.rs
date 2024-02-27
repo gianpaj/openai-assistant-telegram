@@ -53,8 +53,14 @@ async fn handler(update: tg_flows::Update) {
         _ = tele.send_message(chat_id, response);
         // must be audio/ogg and be no more than 1MB in size
         // https://core.telegram.org/bots/api#inputfile
-        let file = InputFile::Url("https://dl.sndup.net/pnvg/throbbing.ogg");
-        _ = tele.send_voice(chat_id, file);
+        let throbbing = "https://dl.sndup.net/pnvg/throbbing.ogg";
+        let url = Url::try_from(throbbing).unwrap();
+        _ = tele.send_voice(chat_id, InputFile::url(url));
+
+        // let crustaceans = "https://rustacean.net/assets/rustacean-orig-noshadow.png";
+        // let url = Url::try_from(crustaceans).unwrap();
+
+        // _ = tele.send_photo(chat_id, InputFile::url(url));
     }
 }
 
