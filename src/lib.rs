@@ -7,6 +7,7 @@ use async_openai::{
 };
 use flowsnet_platform_sdk::logger;
 use tg_flows::{listen_to_update, update_handler, InputFile, Telegram, UpdateKind};
+use url::Url;
 
 #[no_mangle]
 #[tokio::main(flavor = "current_thread")]
