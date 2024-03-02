@@ -58,10 +58,10 @@ async fn handler(update: tg_flows::Update) {
         // let url = Url::try_from(throbbing).unwrap();
         // _ = tele.send_voice(chat_id, InputFile::url(url));
 
-        let crustaceans = "https://rustacean.net/assets/rustacean-orig-noshadow.png";
-        let url = Url::try_from(crustaceans).unwrap();
+        // let crustaceans = "https://rustacean.net/assets/rustacean-orig-noshadow.png";
+        // let url = Url::try_from(crustaceans).unwrap();
 
-        _ = tele.send_photo(chat_id, InputFile::url(url));
+        // _ = tele.send_photo(chat_id, InputFile::url(url));
     }
 }
 
